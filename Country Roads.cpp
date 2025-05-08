@@ -48,18 +48,18 @@ while(t--) {
 
 ll n,m; cin >> n >> m;
 
-vector<vector<pair<ll,ll>>> v(n);
+vector<vector<pair<ll,ll>>> adj(n);
 
 for (ll i = 0; i < m; i++)
 {
     ll x,y,w; cin >> x >> y >> w;
-    v[x].push_back({w,y});
-    v[y].push_back({w,x});
+    adj[x].push_back({w,y});
+    adj[y].push_back({w,x});
 }
 
 
 ll target; cin >> target;
-Dijkstra path(n,target,v,target);
+Dijkstra path(n,target,adj,target);
 
 cout << "Case " << c++ << ": " << endl;
 
