@@ -49,7 +49,7 @@ for(auto u:start)
     dfs(u,1,ans,edge,fre);
 }
 
-   
+
 for(auto u:start)
 {
     if(fre[u] == k )
