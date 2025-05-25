@@ -1,0 +1,1 @@
+{"name":"Local: Donation","url":"w:\\C-C++\\LightOJ\\Donation.cpp","tests":[{"id":1748204636505,"input":"3\n5 4\n1 0 1 1 2\n1 2\n2 3\n3 4\n4 5\n2 1\n5 10\n1 2\n4 2\n1 1 0 2\n1 2\n2 3\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"w:\\C-C++\\LightOJ\\Donation.cpp","group":"local","local":true}
