@@ -1,38 +1,70 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
+#define endl "\n"
 
-void cal(map<ll,map<ll,ll>>&store ,ll x)
+void make_prime(vector<bool> &seive,vector<ll> &prime)
 {
-ll tem =x;
-for (ll i = 2; i*i <=tem && x!=1; i++)
-{
-while (x%i==0){store[tem][i]++;x/=i;}
+    seive[0] = 1;
+    seive[1] = 1;
+    
+    ll size = seive.size();
+    for (ll i = 2; i*i < size; i++)
+    {
+        if(seive[i] == 0)
+        {
+            for (ll j = i*i; j < size; j+=i) seive[j] = 1;
+        }
+    }
+
+    for (ll i = 2; i < size; i++) if(seive[i] == 0) prime.push_back(i);
+    
 }
-if(x!=1)store[tem][x]++;
-}
+
 
 
 int main()
 {
 ios_base::sync_with_stdio(false);cin.tie(NULL);
 
-map<ll,map<ll,ll>>store;
 
-for (ll i = 2; i <= 100; i++)
+vector<bool> seive(1e2+10);
+vector<ll> prime;
+make_prime(seive,prime);
+
+ll c = 1;
+
+ll int t; cin >> t;
+while(t--) {
+
+
+ll n; cin >> n;
+
+map<ll,ll> store;
+
+for(auto u : prime)
 {
-cal(store,i);
-for(auto u:store[i-1])store[i][u.first]+=u.second;
+    if(u > n) break;
+
+    ll x = u;
+    ll count = 0;
+    while ( x <= n)
+    {
+        count += n / x;
+        x *= u;
+    }
+    if(count > 0) store[u] = count;
 }
 
-ll int o; cin >> o;
-for (ll t = 1; t<=o; t++)
+ll first = 1;
+
+cout << "Case " << c++ << ": " << n << " = ";
+for(auto u : store)
 {
-
-ll n; cin>>n;
-
-cout<<"Case "<<t<<": "<<n<<" = ";
-for(auto u:store[n]) {cout<<u.first<< " ("<<u.second<<")";if(store[n].rbegin()->first!=u.first){cout<<" * ";}}
+    if(first) first = 0;
+    else cout << " * "; 
+    cout << u.first << " " << "(" << u.second << ")";
+}
 cout << endl;
 
 }
