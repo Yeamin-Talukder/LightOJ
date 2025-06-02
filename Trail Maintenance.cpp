@@ -78,7 +78,6 @@ ll n , w; cin >> n >> w;
 
 cout << "Case " << c++ << ": "<< endl;
 
-vector<vector<ll>> track(n+1 , vector<ll>(n+1, INT_MAX));
 
 set<tuple<ll,ll,ll>> edge;
 dsu connect(n);
@@ -87,17 +86,10 @@ ll prev = -1;
 for (ll i = 0; i < w ; i++)
 {
     ll x,y,w; cin >> x >> y >> w;
-    if(x > y) swap(x,y);
-
-    if(track[x][y] > w)
-    {
+    
         edge.insert({w,x,y});
-        track[x][y] = w;
         prev = MST(edge , n , connect);
         cout << prev << endl;
-    }
-
-    else cout << prev << endl;
 }
 
 }
