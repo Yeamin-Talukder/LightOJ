@@ -1,0 +1,1 @@
+{"name":"Local: Trailing Zeroes (II)","url":"w:\\C-C++\\LightOJ\\Trailing Zeroes (II).cpp","tests":[{"id":1748951869058,"input":"2\n10 4 1 1\n100 5 40 5\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"w:\\C-C++\\LightOJ\\Trailing Zeroes (II).cpp","group":"local","local":true}
