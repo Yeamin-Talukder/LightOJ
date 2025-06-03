@@ -1,0 +1,1 @@
+{"name":"Local: A Dangerous Maze","url":"w:\\C-C++\\LightOJ\\A Dangerous Maze.cpp","tests":[{"id":1748948639142,"input":"3\n\n1\n1\n\n2\n-10 -3\n\n3\n3 -6 -9\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"w:\\C-C++\\LightOJ\\A Dangerous Maze.cpp","group":"local","local":true}
