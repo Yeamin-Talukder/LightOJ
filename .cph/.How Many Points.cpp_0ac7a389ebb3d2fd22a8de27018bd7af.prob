@@ -1,0 +1,1 @@
+{"name":"Local: How Many Points","url":"w:\\C-C++\\LightOJ\\How Many Points.cpp","tests":[{"id":1749103056985,"input":"2\n3 3 -1 -1\n0 0 5 2\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"w:\\C-C++\\LightOJ\\How Many Points.cpp","group":"local","local":true}
