@@ -6,7 +6,7 @@ using namespace std;
 class ncr
 {
     public : 
-
+    
     vector<ll> factorial;
     ll mod = 1e9 + 7;
 
