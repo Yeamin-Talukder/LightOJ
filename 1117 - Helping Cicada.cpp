@@ -3,31 +3,21 @@ using namespace std;
 #define ll long long
 #define endl "\n"
 
-class Inclusion_Exclusion
+void Inclusion_Exclusion(ll n , vector<ll> &v , ll index ,ll size , ll lcm , ll &ans)
 {
-    public : 
-
-    vector<ll> sub;
-    ll ans = 0;
-
-    Inclusion_Exclusion(ll n , vector<ll> &v )
+    if(index == v.size())
     {
-        for (ll i = 1; i < (1LL << v.size()); i++)
-        {
-            ll x = __builtin_popcount(i);
-
-            bitset<32>bit(i);
-            ll lcm = 1;
-            for (ll j = 0; j < (ll)(log2(i)+1); j++)
-            {
-                if(bit[j] == 1) lcm = (lcm * v[j] ) / __gcd(lcm , v[j]);
-                if(lcm > n) break;
-            }
-            if(lcm <= n) ((x % 2 == 0)? ans -= n/lcm : ans += n/lcm);
-        }
+        if(size == 0) return;
+        if(size % 2 == 0) ans -= (n/lcm);
+        else ans += (n/lcm);
+        return;
     }
-};
 
+    Inclusion_Exclusion(n , v , index+1 , size , lcm , ans);
+
+    ll x = (lcm * v[index]) / __gcd(lcm , v[index]);
+    if(x <= n) Inclusion_Exclusion(n , v , index+1 , size+1 , x , ans );
+}
 
 int main()
 {
@@ -46,8 +36,10 @@ for (ll i = 0; i < m; i++)
     if( x <= n) v.push_back(x);
 }
 
-Inclusion_Exclusion set(n , v);
-cout << "Case " << c++ << ": " << n - set.ans << endl;
+ll ans = 0;
+Inclusion_Exclusion(n , v , 0 , 0 , 1 , ans);
+
+cout << "Case " << c++ << ": " << n - ans << endl;
 
 }
 // Time Complexcity  : O() 
