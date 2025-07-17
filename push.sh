@@ -9,14 +9,13 @@ fi
 # Stage all modified and new files
 git add .
 
-# Loop through all staged files
-for file in $(git diff --cached --name-only)
-do
-  # Get base filename without extension
+# Use safer while-read loop to preserve spaces and special characters
+git diff --cached --name-only -z | while IFS= read -r -d '' file; do
+  # Get filename without extension
   filename=$(basename "$file")
   name="${filename%.*}"
 
-  # Commit with custom message
+  # Commit with proper quoting
   git commit -m "Add $name" "$file"
 done
 
